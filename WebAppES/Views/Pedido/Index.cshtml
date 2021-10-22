@@ -1,0 +1,45 @@
+﻿@model IEnumerable<IpcaHomeModel.Pedido>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AgenteImobiliaria.ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Alojamento.disponibilidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estudante.universidade)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgenteImobiliaria.ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Alojamento.disponibilidade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estudante.universidade)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

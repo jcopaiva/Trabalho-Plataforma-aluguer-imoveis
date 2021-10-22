@@ -1,0 +1,26 @@
+﻿@model IpcaHomeModel.AgenteImobiliaria
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AgenteImobiliaria</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Utilizador.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Utilizador.username)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

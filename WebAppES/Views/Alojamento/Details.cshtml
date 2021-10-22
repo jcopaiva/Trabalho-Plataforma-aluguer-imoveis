@@ -1,0 +1,90 @@
+﻿@model IpcaHomeModel.Alojamento
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Alojamento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.disponibilidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.disponibilidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.informacoes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.informacoes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.restricoes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.restricoes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.avaliacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.avaliacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.historico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.historico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgenteImobiliaria.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgenteImobiliaria.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estudante.universidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estudante.universidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proprietario.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proprietario.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Localização.rua)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Localização.rua)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

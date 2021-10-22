@@ -1,0 +1,42 @@
+﻿@model IpcaHomeModel.Pedido
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Pedido</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AgenteImobiliaria.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgenteImobiliaria.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alojamento.disponibilidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alojamento.disponibilidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estudante.universidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estudante.universidade)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
