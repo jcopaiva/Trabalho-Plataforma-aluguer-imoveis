@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IpcaHomeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AgenteImobiliaria">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UtilizadorID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Utilizador" Relationship="Self.FKAgenteImob904259" FromRole="AgenteImobiliaria" ToRole="Utilizador" />
+    <NavigationProperty Name="Alojamento" Relationship="Self.FKAlojamento81356" FromRole="AgenteImobiliaria" ToRole="Alojamento" />
+    <NavigationProperty Name="PartilhaRedesSociais" Relationship="Self.FKPartilhaRe63407" FromRole="AgenteImobiliaria" ToRole="PartilhaRedesSociais" />
+    <NavigationProperty Name="Pedido" Relationship="Self.FKPedido506418" FromRole="AgenteImobiliaria" ToRole="Pedido" />
+  </EntityType>
+  <EntityType Name="Alojamento">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProprietárioID" Type="Int32" Nullable="false" />
+    <Property Name="EstudanteID" Type="Int32" Nullable="false" />
+    <Property Name="AgenteImobiliariaID" Type="Int32" Nullable="false" />
+    <Property Name="LocalizaçãoID" Type="Int32" Nullable="false" />
+    <Property Name="disponibilidade" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="informacoes" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="restricoes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="avaliacao" Type="Int32" />
+    <Property Name="historico" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AgenteImobiliaria" Relationship="Self.FKAlojamento81356" FromRole="Alojamento" ToRole="AgenteImobiliaria" />
+    <NavigationProperty Name="Estudante" Relationship="Self.FKAlojamento380984" FromRole="Alojamento" ToRole="Estudante" />
+    <NavigationProperty Name="Proprietario" Relationship="Self.FKAlojamento754432" FromRole="Alojamento" ToRole="Proprietario" />
+    <NavigationProperty Name="Localização" Relationship="Self.FKAlojamento770596" FromRole="Alojamento" ToRole="Localização" />
+    <NavigationProperty Name="Pedido" Relationship="Self.FKPedido680427" FromRole="Alojamento" ToRole="Pedido" />
+  </EntityType>
+  <EntityType Name="Estudante">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UtilizadorID" Type="Int32" Nullable="false" />
+    <Property Name="universidade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="curso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ano" Type="Int32" />
+    <Property Name="numeroCC" Type="Int32" />
+    <Property Name="dataNasc" Type="Int32" />
+    <NavigationProperty Name="Alojamento" Relationship="Self.FKAlojamento380984" FromRole="Estudante" ToRole="Alojamento" />
+    <NavigationProperty Name="Utilizador" Relationship="Self.FKEstudante21187" FromRole="Estudante" ToRole="Utilizador" />
+    <NavigationProperty Name="Pedido" Relationship="Self.FKPedido206790" FromRole="Estudante" ToRole="Pedido" />
+  </EntityType>
+  <EntityType Name="Localização">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rua" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="porta" Type="Int32" />
+    <Property Name="localidade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Alojamento" Relationship="Self.FKAlojamento770596" FromRole="Localização" ToRole="Alojamento" />
+  </EntityType>
+  <EntityType Name="PartilhaRedesSociais">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AgenteImobiliariaID" Type="Int32" Nullable="false" />
+    <Property Name="conteudo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AgenteImobiliaria" Relationship="Self.FKPartilhaRe63407" FromRole="PartilhaRedesSociais" ToRole="AgenteImobiliaria" />
+  </EntityType>
+  <EntityType Name="Pedido">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AlojamentoID" Type="Int32" Nullable="false" />
+    <Property Name="EstudanteID" Type="Int32" Nullable="false" />
+    <Property Name="AgenteImobiliariaID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AgenteImobiliaria" Relationship="Self.FKPedido506418" FromRole="Pedido" ToRole="AgenteImobiliaria" />
+    <NavigationProperty Name="Alojamento" Relationship="Self.FKPedido680427" FromRole="Pedido" ToRole="Alojamento" />
+    <NavigationProperty Name="Estudante" Relationship="Self.FKPedido206790" FromRole="Pedido" ToRole="Estudante" />
+  </EntityType>
+  <EntityType Name="Proprietario">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UtilizadorID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Alojamento" Relationship="Self.FKAlojamento754432" FromRole="Proprietario" ToRole="Alojamento" />
+    <NavigationProperty Name="Utilizador" Relationship="Self.FKProprietar611591" FromRole="Proprietario" ToRole="Utilizador" />
+  </EntityType>
+  <EntityType Name="Utilizador">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tipoUtilizador" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AgenteImobiliaria" Relationship="Self.FKAgenteImob904259" FromRole="Utilizador" ToRole="AgenteImobiliaria" />
+    <NavigationProperty Name="Estudante" Relationship="Self.FKEstudante21187" FromRole="Utilizador" ToRole="Estudante" />
+    <NavigationProperty Name="Proprietario" Relationship="Self.FKProprietar611591" FromRole="Utilizador" ToRole="Proprietario" />
+  </EntityType>
+  <Association Name="FKAgenteImob904259">
+    <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="1" />
+    <End Role="AgenteImobiliaria" Type="Self.AgenteImobiliaria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizador">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AgenteImobiliaria">
+        <PropertyRef Name="UtilizadorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKAlojamento81356">
+    <End Role="AgenteImobiliaria" Type="Self.AgenteImobiliaria" Multiplicity="1" />
+    <End Role="Alojamento" Type="Self.Alojamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AgenteImobiliaria">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Alojamento">
+        <PropertyRef Name="AgenteImobiliariaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKPartilhaRe63407">
+    <End Role="AgenteImobiliaria" Type="Self.AgenteImobiliaria" Multiplicity="1" />
+    <End Role="PartilhaRedesSociais" Type="Self.PartilhaRedesSociais" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AgenteImobiliaria">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PartilhaRedesSociais">
+        <PropertyRef Name="AgenteImobiliariaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKPedido506418">
+    <End Role="AgenteImobiliaria" Type="Self.AgenteImobiliaria" Multiplicity="1" />
+    <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AgenteImobiliaria">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Pedido">
+        <PropertyRef Name="AgenteImobiliariaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKAlojamento380984">
+    <End Role="Estudante" Type="Self.Estudante" Multiplicity="1" />
+    <End Role="Alojamento" Type="Self.Alojamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estudante">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Alojamento">
+        <PropertyRef Name="EstudanteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKAlojamento754432">
+    <End Role="Proprietario" Type="Self.Proprietario" Multiplicity="1" />
+    <End Role="Alojamento" Type="Self.Alojamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proprietario">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Alojamento">
+        <PropertyRef Name="ProprietárioID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKAlojamento770596">
+    <End Role="Localização" Type="Self.Localização" Multiplicity="1" />
+    <End Role="Alojamento" Type="Self.Alojamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Localização">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Alojamento">
+        <PropertyRef Name="LocalizaçãoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKPedido680427">
+    <End Role="Alojamento" Type="Self.Alojamento" Multiplicity="1" />
+    <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alojamento">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Pedido">
+        <PropertyRef Name="AlojamentoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKEstudante21187">
+    <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="1" />
+    <End Role="Estudante" Type="Self.Estudante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizador">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Estudante">
+        <PropertyRef Name="UtilizadorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKPedido206790">
+    <End Role="Estudante" Type="Self.Estudante" Multiplicity="1" />
+    <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estudante">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Pedido">
+        <PropertyRef Name="EstudanteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKProprietar611591">
+    <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="1" />
+    <End Role="Proprietario" Type="Self.Proprietario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizador">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Proprietario">
+        <PropertyRef Name="UtilizadorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="IpcaHomeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AgenteImobiliaria" EntityType="Self.AgenteImobiliaria" />
+    <EntitySet Name="Alojamento" EntityType="Self.Alojamento" />
+    <EntitySet Name="Estudante" EntityType="Self.Estudante" />
+    <EntitySet Name="Localização" EntityType="Self.Localização" />
+    <EntitySet Name="PartilhaRedesSociais" EntityType="Self.PartilhaRedesSociais" />
+    <EntitySet Name="Pedido" EntityType="Self.Pedido" />
+    <EntitySet Name="Proprietario" EntityType="Self.Proprietario" />
+    <EntitySet Name="Utilizador" EntityType="Self.Utilizador" />
+    <AssociationSet Name="FKAgenteImob904259" Association="Self.FKAgenteImob904259">
+      <End Role="Utilizador" EntitySet="Utilizador" />
+      <End Role="AgenteImobiliaria" EntitySet="AgenteImobiliaria" />
+    </AssociationSet>
+    <AssociationSet Name="FKAlojamento81356" Association="Self.FKAlojamento81356">
+      <End Role="AgenteImobiliaria" EntitySet="AgenteImobiliaria" />
+      <End Role="Alojamento" EntitySet="Alojamento" />
+    </AssociationSet>
+    <AssociationSet Name="FKPartilhaRe63407" Association="Self.FKPartilhaRe63407">
+      <End Role="AgenteImobiliaria" EntitySet="AgenteImobiliaria" />
+      <End Role="PartilhaRedesSociais" EntitySet="PartilhaRedesSociais" />
+    </AssociationSet>
+    <AssociationSet Name="FKPedido506418" Association="Self.FKPedido506418">
+      <End Role="AgenteImobiliaria" EntitySet="AgenteImobiliaria" />
+      <End Role="Pedido" EntitySet="Pedido" />
+    </AssociationSet>
+    <AssociationSet Name="FKAlojamento380984" Association="Self.FKAlojamento380984">
+      <End Role="Estudante" EntitySet="Estudante" />
+      <End Role="Alojamento" EntitySet="Alojamento" />
+    </AssociationSet>
+    <AssociationSet Name="FKAlojamento754432" Association="Self.FKAlojamento754432">
+      <End Role="Proprietario" EntitySet="Proprietario" />
+      <End Role="Alojamento" EntitySet="Alojamento" />
+    </AssociationSet>
+    <AssociationSet Name="FKAlojamento770596" Association="Self.FKAlojamento770596">
+      <End Role="Localização" EntitySet="Localização" />
+      <End Role="Alojamento" EntitySet="Alojamento" />
+    </AssociationSet>
+    <AssociationSet Name="FKPedido680427" Association="Self.FKPedido680427">
+      <End Role="Alojamento" EntitySet="Alojamento" />
+      <End Role="Pedido" EntitySet="Pedido" />
+    </AssociationSet>
+    <AssociationSet Name="FKEstudante21187" Association="Self.FKEstudante21187">
+      <End Role="Utilizador" EntitySet="Utilizador" />
+      <End Role="Estudante" EntitySet="Estudante" />
+    </AssociationSet>
+    <AssociationSet Name="FKPedido206790" Association="Self.FKPedido206790">
+      <End Role="Estudante" EntitySet="Estudante" />
+      <End Role="Pedido" EntitySet="Pedido" />
+    </AssociationSet>
+    <AssociationSet Name="FKProprietar611591" Association="Self.FKProprietar611591">
+      <End Role="Utilizador" EntitySet="Utilizador" />
+      <End Role="Proprietario" EntitySet="Proprietario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

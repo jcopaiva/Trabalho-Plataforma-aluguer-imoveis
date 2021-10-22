@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IpcaHomeModelStoreContainer" CdmEntityContainer="IpcaHomeEntities">
+    <EntitySetMapping Name="AgenteImobiliaria">
+      <EntityTypeMapping TypeName="IpcaHomeModel.AgenteImobiliaria">
+        <MappingFragment StoreEntitySet="AgenteImobiliaria">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UtilizadorID" ColumnName="UtilizadorID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Alojamento">
+      <EntityTypeMapping TypeName="IpcaHomeModel.Alojamento">
+        <MappingFragment StoreEntitySet="Alojamento">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ProprietárioID" ColumnName="ProprietárioID" />
+          <ScalarProperty Name="EstudanteID" ColumnName="EstudanteID" />
+          <ScalarProperty Name="AgenteImobiliariaID" ColumnName="AgenteImobiliariaID" />
+          <ScalarProperty Name="LocalizaçãoID" ColumnName="LocalizaçãoID" />
+          <ScalarProperty Name="disponibilidade" ColumnName="disponibilidade" />
+          <ScalarProperty Name="informacoes" ColumnName="informacoes" />
+          <ScalarProperty Name="restricoes" ColumnName="restricoes" />
+          <ScalarProperty Name="avaliacao" ColumnName="avaliacao" />
+          <ScalarProperty Name="historico" ColumnName="historico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estudante">
+      <EntityTypeMapping TypeName="IpcaHomeModel.Estudante">
+        <MappingFragment StoreEntitySet="Estudante">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UtilizadorID" ColumnName="UtilizadorID" />
+          <ScalarProperty Name="universidade" ColumnName="universidade" />
+          <ScalarProperty Name="curso" ColumnName="curso" />
+          <ScalarProperty Name="ano" ColumnName="ano" />
+          <ScalarProperty Name="numeroCC" ColumnName="numeroCC" />
+          <ScalarProperty Name="dataNasc" ColumnName="dataNasc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Localização">
+      <EntityTypeMapping TypeName="IpcaHomeModel.Localização">
+        <MappingFragment StoreEntitySet="Localização">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="rua" ColumnName="rua" />
+          <ScalarProperty Name="porta" ColumnName="porta" />
+          <ScalarProperty Name="localidade" ColumnName="localidade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartilhaRedesSociais">
+      <EntityTypeMapping TypeName="IpcaHomeModel.PartilhaRedesSociais">
+        <MappingFragment StoreEntitySet="PartilhaRedesSociais">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AgenteImobiliariaID" ColumnName="AgenteImobiliariaID" />
+          <ScalarProperty Name="conteudo" ColumnName="conteudo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pedido">
+      <EntityTypeMapping TypeName="IpcaHomeModel.Pedido">
+        <MappingFragment StoreEntitySet="Pedido">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AlojamentoID" ColumnName="AlojamentoID" />
+          <ScalarProperty Name="EstudanteID" ColumnName="EstudanteID" />
+          <ScalarProperty Name="AgenteImobiliariaID" ColumnName="AgenteImobiliariaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proprietario">
+      <EntityTypeMapping TypeName="IpcaHomeModel.Proprietario">
+        <MappingFragment StoreEntitySet="Proprietario">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UtilizadorID" ColumnName="UtilizadorID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Utilizador">
+      <EntityTypeMapping TypeName="IpcaHomeModel.Utilizador">
+        <MappingFragment StoreEntitySet="Utilizador">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="tipoUtilizador" ColumnName="tipoUtilizador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
